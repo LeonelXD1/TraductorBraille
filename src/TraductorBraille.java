@@ -101,11 +101,11 @@ public class TraductorBraille {
 
         if (puntos.length == 6) {
             // Línea 1: puntos 1 y 4
-            lineas.get(0).append(puntos[0] ? "1" : "0").append(" ").append(puntos[3] ? "1" : "0");
+            lineas.get(0).append(puntos[0] ? "●" : "○").append(" ").append(puntos[3] ? "●" : "○");
             // Línea 2: puntos 2 y 5
-            lineas.get(1).append(puntos[1] ? "1" : "0").append(" ").append(puntos[4] ? "1" : "0");
+            lineas.get(1).append(puntos[1] ? "●" : "○").append(" ").append(puntos[4] ? "●" : "○");
             // Línea 3: puntos 3 y 6
-            lineas.get(2).append(puntos[2] ? "1" : "0").append(" ").append(puntos[5] ? "1" : "0");
+            lineas.get(2).append(puntos[2] ? "●" : "○").append(" ").append(puntos[5] ? "●" : "○");
         }
     }
 
@@ -116,9 +116,9 @@ public class TraductorBraille {
      * * @param lineas Lista de 3 StringBuilder que representan las 3 filas de salida Braille
      */
     private void agregarIndicadorNumerico(List<StringBuilder> lineas) {
-        lineas.get(0).append("0 1");
-        lineas.get(1).append("0 1");
-        lineas.get(2).append("1 1");
+        lineas.get(0).append("○ ●");
+        lineas.get(1).append("○ ●");
+        lineas.get(2).append("● ●");
 
         // Espacio después del indicador
         for (StringBuilder linea : lineas) {
@@ -133,9 +133,9 @@ public class TraductorBraille {
      * * @param lineas Lista de 3 StringBuilder que representan las 3 filas de salida Braille
      */
     private void agregarIndicadorMayuscula(List<StringBuilder> lineas) {
-        lineas.get(0).append("0 1");
-        lineas.get(1).append("0 0");
-        lineas.get(2).append("0 1");
+        lineas.get(0).append("○ ●");
+        lineas.get(1).append("○ ○");
+        lineas.get(2).append("○ ●");
 
         // Espacio después del indicador
         for (StringBuilder linea : lineas) {
