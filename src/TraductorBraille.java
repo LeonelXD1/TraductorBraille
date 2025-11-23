@@ -1,13 +1,36 @@
+
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase principal que traduce texto en español a su representación en Braille.
+ * Maneja la conversión de caracteres individuales, incluyendo mayúsculas y números,
+ * y genera la representación visual en formato de 3 filas.
+ * 
+ * @author Grupo 2
+ * @version 1.0
+ */
 public class TraductorBraille {
+    /** Fábrica de caracteres Braille utilizada para obtener las representaciones */
     private FabricaCaracteresBraille fabrica;
 
+    /**
+     * Constructor que inicializa el traductor con una instancia de la fábrica de caracteres Braille.
+     */
     public TraductorBraille() {
         this.fabrica = FabricaCaracteresBraille.obtenerInstancia();
     }
 
+    /**
+     * Traduce un texto completo a su representación en Braille.
+     * Maneja automáticamente mayúsculas (agregando el indicador de mayúscula),
+     * números (agregando el indicador numérico) y mantiene los espacios entre caracteres.
+     * 
+     * @param texto El texto en español que se desea traducir a Braille
+     * @return String con la representación Braille del texto en formato de 3 filas,
+     *         donde cada carácter está separado por espacios y cada fila representa
+     *         una fila de puntos Braille
+     */
     public String traducirTexto(String texto) {
         StringBuilder resultado = new StringBuilder();
         List<StringBuilder> lineas = new ArrayList<>();
@@ -56,6 +79,13 @@ public class TraductorBraille {
         return resultado.toString();
     }
 
+    /**
+     * Agrega la representación de un carácter Braille a las líneas de salida.
+     * Distribuye los 6 puntos del carácter en las 3 filas correspondientes.
+     * 
+     * @param braille El objeto CaracterBraille que se desea agregar
+     * @param lineas Lista de 3 StringBuilder que representan las 3 filas de salida Braille
+     */
     private void agregarCaracterBraille(CaracterBraille braille, List<StringBuilder> lineas) {
         boolean[] puntos = braille.getPuntos();
 
@@ -69,6 +99,13 @@ public class TraductorBraille {
         }
     }
 
+    /**
+     * Agrega el indicador numérico de Braille a las líneas de salida.
+     * El indicador numérico se usa antes de una secuencia de números para indicar
+     * que los siguientes caracteres deben interpretarse como números.
+     * 
+     * @param lineas Lista de 3 StringBuilder que representan las 3 filas de salida Braille
+     */
     private void agregarIndicadorNumerico(List<StringBuilder> lineas) {
         lineas.get(0).append("0 1");
         lineas.get(1).append("0 1");
@@ -80,6 +117,13 @@ public class TraductorBraille {
         }
     }
 
+    /**
+     * Agrega el indicador de mayúscula de Braille a las líneas de salida.
+     * El indicador de mayúscula se usa antes de una letra mayúscula para indicar
+     * que el siguiente carácter es una letra mayúscula.
+     * 
+     * @param lineas Lista de 3 StringBuilder que representan las 3 filas de salida Braille
+     */
     private void agregarIndicadorMayuscula(List<StringBuilder> lineas) {
         lineas.get(0).append("0 1");
         lineas.get(1).append("0 0");

@@ -1,10 +1,25 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Clase que implementa el patrón Singleton para crear y gestionar caracteres Braille.
+ * Mantiene un mapa de todos los caracteres disponibles y sus representaciones Braille.
+ * Incluye soporte para letras, números, signos de puntuación, acentos y símbolos matemáticos.
+ * 
+ * @author Grupo 2
+ * @version 1.0
+ */
 public class FabricaCaracteresBraille {
+    /** Instancia única de la fábrica (patrón Singleton) */
     private static FabricaCaracteresBraille instancia;
+    
+    /** Mapa que almacena todos los caracteres y sus representaciones Braille */
     private Map<Character, CaracterBraille> mapaCaracteres;
 
+    /**
+     * Constructor privado para implementar el patrón Singleton.
+     * Inicializa el mapa de caracteres y carga todos los caracteres disponibles.
+     */
     private FabricaCaracteresBraille() {
         mapaCaracteres = new HashMap<>();
         inicializarAlfabeto();
@@ -14,6 +29,12 @@ public class FabricaCaracteresBraille {
         inicializarSimbolosMatematicos();
     }
 
+    /**
+     * Obtiene la instancia única de la fábrica de caracteres Braille.
+     * Implementa el patrón Singleton para garantizar una única instancia.
+     * 
+     * @return La instancia única de FabricaCaracteresBraille
+     */
     public static FabricaCaracteresBraille obtenerInstancia() {
         if (instancia == null) {
             instancia = new FabricaCaracteresBraille();
@@ -21,6 +42,9 @@ public class FabricaCaracteresBraille {
         return instancia;
     }
 
+    /**
+     * Inicializa el mapa con todas las letras del alfabeto (a-z) y sus representaciones Braille.
+     */
     private void inicializarAlfabeto() {
         mapaCaracteres.put('a', new CaracterBraille('a', new boolean[]{true, false, false, false, false, false}));
         mapaCaracteres.put('b', new CaracterBraille('b', new boolean[]{true, true, false, false, false, false}));
@@ -49,7 +73,9 @@ public class FabricaCaracteresBraille {
         mapaCaracteres.put('y', new CaracterBraille('y', new boolean[]{true, false, true, true, true, true}));
         mapaCaracteres.put('z', new CaracterBraille('z', new boolean[]{true, false, true, false, true, true}));
     }
-    // Números
+    /**
+     * Inicializa el mapa con todos los números (0-9) y sus representaciones Braille.
+     */
     private void inicializarNumeros() {
         mapaCaracteres.put('1', new CaracterBraille('1', new boolean[]{true, false, false, false, false, false}));
         mapaCaracteres.put('2', new CaracterBraille('2', new boolean[]{true, true, false, false, false, false}));
@@ -62,7 +88,10 @@ public class FabricaCaracteresBraille {
         mapaCaracteres.put('9', new CaracterBraille('9', new boolean[]{false, true, false, true, false, false}));
         mapaCaracteres.put('0', new CaracterBraille('0', new boolean[]{false, true, false, true, true, false}));
     }
-    // Signos de puntuación
+    /**
+     * Inicializa el mapa con los signos de puntuación más comunes y sus representaciones Braille.
+     * Incluye: punto, coma, punto y coma, dos puntos, exclamación, interrogación y espacio.
+     */
     private void inicializarSignosPuntuacion() {
 
         mapaCaracteres.put('.', new CaracterBraille('.', new boolean[]{false, false, true, false, false, false}));
@@ -74,7 +103,10 @@ public class FabricaCaracteresBraille {
         mapaCaracteres.put(' ', new CaracterBraille(' ', new boolean[]{false, false, false, false, false, false}));
     }
 
-    // Caracteres con acento
+    /**
+     * Inicializa el mapa con los caracteres acentuados del español y sus representaciones Braille.
+     * Incluye: á, é, í, ó, ú, ü y ñ.
+     */
     private void inicializarAcentos() {
         mapaCaracteres.put('á', new CaracterBraille('á', new boolean[]{true, true, true, false, true, true}));
         mapaCaracteres.put('é', new CaracterBraille('é', new boolean[]{false, true, true, true, false, true}));
@@ -85,6 +117,10 @@ public class FabricaCaracteresBraille {
         mapaCaracteres.put('ñ', new CaracterBraille('ñ', new boolean[]{true, true, false, true, true, true}));
     }
 
+    /**
+     * Inicializa el mapa con símbolos matemáticos básicos y sus representaciones Braille.
+     * Incluye: paréntesis, suma, multiplicación, igual, división y resta.
+     */
     private void inicializarSimbolosMatematicos() {
 
         // Paréntesis izquierdo (
@@ -109,6 +145,15 @@ public class FabricaCaracteresBraille {
         mapaCaracteres.put('-', new CaracterBraille('-', new boolean[]{false, false, true, false, false, true}));
     }
 
+    /**
+     * Obtiene la representación Braille de un carácter dado.
+     * Si el carácter no se encuentra directamente, intenta buscarlo en minúsculas.
+     * Si aún así no se encuentra, retorna un signo de interrogación en Braille.
+     * 
+     * @param caracter El carácter del cual se desea obtener su representación Braille
+     * @return Un objeto CaracterBraille con la representación correspondiente,
+     *         o un signo de interrogación si el carácter no está disponible
+     */
     public CaracterBraille obtenerCaracterBraille(char caracter) {
         CaracterBraille resultado = mapaCaracteres.get(caracter);
 
@@ -125,6 +170,12 @@ public class FabricaCaracteresBraille {
         return resultado;
     }
 
+    /**
+     * Verifica si un resultado de búsqueda de carácter Braille es válido.
+     * 
+     * @param resultado El objeto CaracterBraille a validar
+     * @return true si el resultado no es null, false en caso contrario
+     */
     private static boolean resultadoEsValido(CaracterBraille resultado) {
         return resultado != null;
     }

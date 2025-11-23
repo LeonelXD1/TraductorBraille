@@ -1,4 +1,7 @@
-public class PruebasBraille {
+class PruebasBraille {
+    /** 
+     * @param args
+     */
     public static void main(String[] args) {
         TraductorBraille traductor = new TraductorBraille();
 
