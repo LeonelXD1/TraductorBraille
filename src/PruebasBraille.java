@@ -6,7 +6,7 @@ class PruebasBraille {
         TraductorBraille traductor = new TraductorBraille();
 
         String[] pruebas = {
-                "hola",
+                "Hola",
                 "mundo",
                 "123",
                 "Hola Mundo",
@@ -43,8 +43,8 @@ class PruebasBraille {
         }
 
         // Prueba para signos
-        String signos = ".,;:_!¡¿?()";
-        for (char acento : acentos.toCharArray()) {
+        String signos = ".,;:_!¡¿?()@";
+        for (char acento : signos.toCharArray()) {
             System.out.println("Caracter: '" + acento + "'");
             System.out.println(traductor.traducirTexto(String.valueOf(acento)));
         }
@@ -54,10 +54,12 @@ class PruebasBraille {
         for (char operacion : operaciones.toCharArray()) {
             System.out.println("Caracter: '" + operacion + "'");
             System.out.println(traductor.traducirTexto(String.valueOf(operacion)));
+            
         }
-
+        System.out.println(traductor.traducirTexto("1,25"));
         System.out.println("● ○  ● ○  ● ○  ● ○\n" +
                 "● ●  ○ ●  ● ○  ○ ○\n" +
                 "○ ○  ● ○  ● ○  ○ ○\n");
     }
+    
 }
