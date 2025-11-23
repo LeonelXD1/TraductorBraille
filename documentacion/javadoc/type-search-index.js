@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"<Unnamed>","l":"CaracterBraille"},{"p":"<Unnamed>","l":"FabricaCaracteresBraille"},{"p":"<Unnamed>","l":"TraductorBraille"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"<Unnamed>","l":"CaracterBraille"},{"p":"<Unnamed>","l":"FabricaCaracteresBraille"},{"p":"<Unnamed>","l":"Main"},{"p":"<Unnamed>","l":"PruebasBraille"},{"p":"<Unnamed>","l":"TraductorBraille"}];updateSearchResults();
