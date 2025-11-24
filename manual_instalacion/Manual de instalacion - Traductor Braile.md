@@ -82,18 +82,22 @@ Este manual de instalación proporciona los pasos necesarios para descargar, pre
 <p id="sec-1-2-alcance" style="font-weight: bold; color:#4f81bd; text-align: justify;">
 1.2. Alcance
 </p>
+
 <p style="text-align: justify;">
+
 Incluye instrucciones sobre:
 - Descarga del repositorio  
 - Selección de la rama correcta  
 - Ubicación del archivo ejecutable `.bat`  
 - Preparación del entorno para la ejecución del sistema  
+
 </p>
 
 <p id="sec-1-3-visión" style="font-weight: bold; color:#4f81bd; text-align: justify;">
 1.3. Visión general del instalador
 </p>
 <p style="text-align: justify;">
+
 El sistema se ejecuta mediante un archivo `.bat` incluido en la rama master del repositorio. No requiere instalación compleja, únicamente tener Java y obtener el proyecto desde GitHub.
 </p>
 
@@ -105,19 +109,25 @@ El sistema se ejecuta mediante un archivo `.bat` incluido en la rama master del 
 <p id="sec-2-1-hardware" style="font-weight: bold; color:#4f81bd; text-align: justify;">
 2.1. Hardware requerido
 </p>
+
 <p style="text-align: justify;">
+
 - Procesador básico (Intel Core i3 o equivalente)  
 - 2GB de RAM  
 - 50MB de espacio libre  
+
 </p>
 
 <p id="sec-2-2-software" style="font-weight: bold; color:#4f81bd; text-align: justify;">
 2.2. Software requerido
 </p>
+
 <p style="text-align: justify;">
+
 - Windows 7, 8, 10 o superior  
 - Java Runtime Environment (JRE) 8 o superior  
 - Git (opcional, pero recomendado)  
+
 </p>
 
 <!-- DESCARGA DEL PROYECTO -->
