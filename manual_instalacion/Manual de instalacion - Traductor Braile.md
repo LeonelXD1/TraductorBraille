@@ -139,6 +139,7 @@ Si tiene Git instalado, ejecute en CMD:
 </p>
 
 <p style="text-align: justify;">
+
 Si no tiene Git:
 </p>
 
@@ -151,6 +152,7 @@ Si no tiene Git:
 
 <p id="sec-3-3-rama" style="font-weight: bold; color:#4f81bd; text-align: justify;">
 3.3. Selección de la rama correcta
+
 </p>
 
 <p style="text-align: justify;">
@@ -180,10 +182,12 @@ Una vez descargado el proyecto, ubique la carpeta donde se encuentran el archivo
 4.2. Preparación del archivo .bat
 </p>
 <p style="text-align: justify;">
+
 No requiere configuración adicional. Sin embargo:
 - No debe moverse de la carpeta del proyecto.  
 - Debe tener acceso al archivo `.jar` que invoca.  
 - Si necesita editar rutas relativas dentro del `.bat`, abra el archivo con un editor de texto y verifique las rutas.
+
 </p>
 
 <!-- EJECUCION -->
@@ -215,6 +219,7 @@ Para iniciar el programa:
 6.1. No se puede clonar el repositorio
 </p>
 <p style="text-align: justify;">
+
 Causas posibles:
 - URL incorrecta  
 - No hay conexión a Internet  
@@ -223,6 +228,7 @@ Causas posibles:
 Solución:
 - Verifique la URL del repositorio.  
 - Ejecute:  
+
 </p>
 
 <pre><code>git --version</code></pre>
@@ -236,6 +242,7 @@ para comprobar si Git está instalado.
 </p>
 
 <p style="text-align: justify;">
+
 Causas posibles:
 - El `.jar` fue movido o está en otra carpeta  
 - El `.bat` contiene una ruta incorrecta  
@@ -245,6 +252,7 @@ Soluciones:
 - Asegúrese de que todos los archivos estén en la misma carpeta.  
 - Revise el `.bat` con un editor de texto para corregir rutas.  
 - Abra CMD dentro de la carpeta y ejecute el `.bat` manualmente para ver mensajes de error.
+
 </p>
 
 <p id="sec-6-3-java" style="font-weight: bold; color:#4f81bd; text-align: justify;">
