@@ -10,5 +10,5 @@
 <br>
 
 **Ramas:**
-- En la rama main se encuentra el código del programa.
-- En la rama documentacion se encuentra toda la documentación del proyecto.
+- En la rama **main** se encuentra el código del programa.
+- En la rama **documentacion** se encuentra toda la documentación del proyecto.
