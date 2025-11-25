@@ -1,4 +1,4 @@
-### Plan de Pruebas: `TRADUCTOR_BRAILLE_FUNCIONAL`
+### Plan de Pruebas: 
 
 | **ID del Caso** | **Título del Caso de Prueba**                          | **Módulo**            | **Prioridad** |
 | --------------------- | ------------------------------------------------------------- | ---------------------------- | ------------------- |
@@ -116,10 +116,9 @@ Resultado obtenido:
 
 `0 0`
 
-`0 1` 
+`0 1`
 
 + Braille de 'h'
-
 + Seguido por los Braille de 'o', 'l', 'a'.
 
 (El indicador solo debe aparecer  **antes de la primera letra mayúscula** ).
@@ -214,7 +213,7 @@ Fila 3: `1 1  0 0  1 0  0 0`
 
 ![1763925082546](image/tests/1763925082546.png)
 
-Lo que sucede es que se crea el identificador de número luego de el signo "." o "," 
+Lo que sucede es que se crea el identificador de número luego de el signo "." o ","
 
 **Solución:**
 

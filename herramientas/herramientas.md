@@ -3,7 +3,7 @@
 ## 1. Lenguaje de Programación
 
 - Lenguaje: Java
-- Versión: Java 24
+- Versión: Jdk 24
 
 ## 2. IDE o Editor de Código
 
