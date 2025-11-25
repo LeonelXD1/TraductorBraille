@@ -1,4 +1,4 @@
-### Plan de Pruebas: 
+# Plan de Pruebas
 
 | **ID del Caso** | **Título del Caso de Prueba**                          | **Módulo**            | **Prioridad** |
 | --------------------- | ------------------------------------------------------------- | ---------------------------- | ------------------- |
@@ -97,7 +97,7 @@ Resultado obtenido:
 
 ---
 
-### **4. Caso de Prueba: TC_TRAD_004 (Mayúsculas)**
+### 4. Caso de Prueba: TC_TRAD_004 (Mayúsculas)
 
 **Título:** Traducción de palabra con mayúscula inicial.
 
@@ -118,8 +118,8 @@ Resultado obtenido:
 
 `0 1`
 
-+ Braille de 'h'
-+ Seguido por los Braille de 'o', 'l', 'a'.
+ +Braille de 'h'
++Seguido por los Braille de 'o', 'l', 'a'.
 
 (El indicador solo debe aparecer  **antes de la primera letra mayúscula** ).
 
