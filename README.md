@@ -1,5 +1,6 @@
 # TraductorBraille
 **Grupo:** G2
+<br>
 **Integrantes:**
 - Kevin Calles
 - Leonel Oña
