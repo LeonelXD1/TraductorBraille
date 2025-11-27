@@ -23,7 +23,7 @@ Manual de Usuario
 <div style="height: 125px;"></div>
 
 <p style="font-size: 21px; font-weight: bold; color:#0a2b50; text-align: right;">
-Versión 1.0
+Versión 2.0
 </p>
 
 <hr style="border: 1px solid #999;">
@@ -53,10 +53,12 @@ Versión 1.0
     <li><a style="color: black;" href="#sec-3-1-inicio">&emsp;3.1. Inicio del programa</a></li>
     <li><a style="color: black;" href="#sec-3-2-ingreso">&emsp;3.2. Ingreso de texto</a></li>
     <li><a style="color: black;" href="#sec-3-3-lectura">&emsp;3.3. Lectura de la traducción en Braille</a></li>
+    <li><a style="color: black;" href="#sec-3-4-impresion">&emsp;3.4. Exportación de traducción a PDF</a></li>
     <li><a style="color: black;" href="#sec-4-problemas">4. Solución de Problemas Comunes</a></li>
     <li><a style="color: black;" href="#sec-4-1-consola">&emsp;4.1. La consola se cierra inmediatamente</a></li>
     <li><a style="color: black;" href="#sec-4-2-no-traduccion">&emsp;4.2. No aparece la traducción</a></li>
     <li><a style="color: black;" href="#sec-4-3-texto-cortado">&emsp;4.3. El texto aparece cortado o con espacios incorrectos</a></li>
+    <li><a style="color: black;" href="#sec-4-4-no-pdf">&emsp;4.4. No se genera el PDF</a></li>
     <li><a style="color: black;" href="#sec-5-apendices">5. Apéndices</a></li>
     <li><a style="color: black;" href="#sec-5-1-glosario">&emsp;5.1. Glosario</a></li>
     <li><a style="color: black;" href="#sec-5-2-contacto">&emsp;5.2. Información de contacto</a></li>
@@ -72,24 +74,28 @@ Versión 1.0
 1.1. Propósito del sistema
 </p>
 <p style="text-align: justify;">
-El sistema de traducción Braille permite convertir textos escritos en español al sistema de lectoescritura Braille de manera automática. Está diseñado para apoyar la comprensión básica de Braille y facilitar la generación de rotulación simple en este formato.
+El sistema de traducción Braille permite convertir textos escritos en español al sistema de lectoescritura Braille de manera automática. Esta versión incorpora dos formas de uso: una interfaz gráfica intuitiva y una ejecución previa mediante consola. La nueva interfaz GUI facilita el ingreso de texto, visualización en Braille usando puntos gráficos y la exportación del resultado en formato PDF.
 </p>
 <p id="sec-1-2-audiencia" style="font-weight: bold; color:#4f81bd; text-align: justify;">
 1.2. Audiencia objetivo
 </p>
 <p style="text-align: justify;">
-Este manual está dirigido a cualquier persona que utilice el programa desde consola, sin necesidad de conocimientos técnicos avanzados.
+Este manual está dirigido a cualquier persona que utilice el programa, sin necesidad de conocimientos técnicos avanzados.
 </p>
 <p id="sec-1-3-vision" style="font-weight: bold; color:#4f81bd; text-align: justify;">
 1.3. Visión general del sistema
 </p>
 <p style="text-align: justify;">
-El programa funciona en modo consola:
+El programa funciona ahora mediante una interfaz gráfica amigable en la cual el usuario puede:
 
-1. El usuario ejecuta un archivo `.bat`.
-2. El sistema solicita una frase en español.
-3. El programa muestra el texto ingresado y su equivalente en Braille utilizando puntos representados por caracteres ASCII.
+1. Ingresar el texto a traducir en un cuadro de texto superior.
+2. Presionar el botón <b>Traducir</b> para visualizar la conversión a Braille mediante puntos gráficos.
+3. Exportar la traducción a un archivo PDF utilizando el botón <b>Exportar PDF</b>.
+4. Limpiar los campos mediante el botón <b>Limpiar</b> para realizar nuevas traducciones.
+
+La interfaz facilita la comprensión visual del Braille y estandariza la salida para impresión o almacenamiento en PDF.
 </p>
+
 <p id="sec-1-4-beneficios" style="font-weight: bold; color:#4f81bd; text-align: justify;">
 1.4. Beneficios del sistema
 </p>
@@ -121,8 +127,9 @@ Este manual incluye:
 <p style="text-align: justify;">
 Para el correcto funcionamiento del programa:
 
-- Consola de Windows (CMD)
-- Archivo ejecutable `.bat` generado por el desarrollador
+- Sistema operativo Windows 7, 8, 10 o superior
+- Java Runtime Environment (JRE) 8 o superior
+- Permisos para guardar archivos PDF en el sistema
 </p>
 <p id="sec-2-2-hardware" style="font-weight: bold; color:#4f81bd; text-align: justify;">
 2.2. Hardware requerido
@@ -169,11 +176,11 @@ Al ejecutar el `.bat`, aparecerá:
 3.2. Ingreso de texto
 </p>
 <p style="text-align: justify;">
-Escriba la palabra o frase que desea traducir y presione Enter.<br>
+Escriba la palabra o frase que desea traducir y presione <b>Traducir</b>.<br>
 Ejemplo:
 </p>
 <div align="center">
-<img src="image/ingreso_texto.png" width="40%"alt="Ejecución del traductor">
+<img src="image/ingreso_texto.png" width="50%"alt="Ejecución del traductor">
 </div>
 <p id="sec-3-3-lectura" style="font-weight: bold; color:#4f81bd; text-align: justify;">
 3.3. Lectura de la traducción en Braille
@@ -182,29 +189,54 @@ Ejemplo:
 El sistema mostrará:
 
 - El texto original
-- Una representación visual del Braille en dos filas, con puntos altos y bajos, similar a:
+- Una representación visual del Braille en tres filas, con puntos altos y bajos, similar a:
 </p>
 <div align="center">
-<img src="image/salida.png" width="25%"alt="Ejecución del traductor">
+<img src="image/salida.png" width="50%"alt="Ejecución del traductor">
 </div>
+<p id="sec-3-4-impresion" style="font-weight: bold; color:#4f81bd; text-align: justify;">
+3.4. Exportación de traducción a PDF
+</p>
+<p style="text-align: justify;">
+El sistema permite guardar la traducción Braille en un archivo PDF mediante el botón <b>Exportar PDF</b>. Al presionarlo:
+
+1. Se abre una ventana para seleccionar la ubicación de guardado.
+2. El usuario ingresa el nombre del archivo.
+
+<div align="center">
+<img src="image/guardado.png" width="50%"alt="Ejecución del traductor">
+</div>
+
+3. Se genera un PDF que incluye el texto original y su traducción en Braille mediante puntos gráficos.
+4. El sistema confirma la creación del archivo.
+
+<div align="center">
+<img src="image/confirmacion.png" width="50%"alt="Ejecución del traductor">
+</div>
+
+5. Se puede buscar el archivo en la ubicación especificada.
+
+<div align="center">
+<img src="image/pdf.png" width="50%"alt="Ejecución del traductor">
+</div>
+</p>
 
 <p id="sec-4-problemas" style="font-size: 15px; font-weight: bold; color:#4f81bd; text-align: justify; margin-top: 35px;">
 4. Solución de Problemas Comunes
 </p>
 <p id="sec-4-1-consola" style="font-weight: bold; color:#4f81bd; text-align: justify;">
-4.1. La consola se cierra inmediatamente
+4.1. La interfaz gráfica no abre
 </p>
 <p style="text-align: justify;">
 Posibles causas:
 
-- El `.bat` no encuentra el archivo .jar del proyecto.
-- Los archivos fueron movidos de carpeta.
 - No está instalado Java.
+- El archivo `.jar` fue movido de carpeta.
+- Faltan librerías gráficas.
 
 Solución:
 
 - Asegúrese de que todos los archivos del proyecto estén en la misma carpeta.
-- Abra el `.bat` con un editor de texto y revise que la ruta del programa sea correcta.
 - Verifique que Java esté instalado:
 
 ```
@@ -231,13 +263,27 @@ Solución:
 <p style="text-align: justify;">
 Posibles causas:
 
-- La consola está usando un tamaño de ventana pequeño.
+- La ventana está usando un tamaño pequeño.
 - El Braille ASCII ocupa dos líneas (fila superior e inferior), lo que puede generar saltos visuales.
 
 Solución:
 
-- Maximice o agrande la ventana de CMD.
-- Ajuste el tamaño de fuente del CMD.
+- Maximice o agrande la ventana.
+</p>
+
+<p id="sec-4-4-no-pdf" style="font-weight: bold; color:#4f81bd; text-align: justify;">
+4.4. No se genera el PDF
+</p>
+<p style="text-align: justify;">
+Posibles causas:
+
+- No se seleccionó una carpeta válida.
+- El texto Braille no se generó antes de exportar.
+
+Solución:
+
+- Seleccione una carpeta adecuada.
+- Presione primero el botón <b>Traducir</b> antes de exportar.
 </p>
 
 <p id="sec-5-apendices" style="font-size: 15px; font-weight: bold; color:#4f81bd; text-align: justify; margin-top: 35px;">
@@ -251,6 +297,8 @@ Solución:
 <b>BAT (.bat):</b> Archivo que ejecuta comandos automáticamente en Windows.<br>
 <b>Braille:</b> Sistema de lectoescritura táctil basado en puntos en relieve.<br>
 <b>CMD (Command Prompt):</b> Consola de Windows para ejecutar comandos y programas.<br>
+<b>PDF (Portable Document Format):</b> Archivo que mantiene el formato del documento para impresión y almacenamiento.<br>
+<b>GUI (Graphical User Interface):</b> Interfaz gráfica que permite usar el sistema mediante botones, cuadros de texto y ventanas.
 </p>
 
 <p id="sec-5-2-contacto" style="font-weight: bold; color:#4f81bd; text-align: justify;">
