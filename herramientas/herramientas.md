@@ -17,6 +17,9 @@
 | Map       | java.util.Map       | Interfaz para mapas / diccionarios      | Tipo de referencia para el mapa de caracteres.    |
 | ArrayList | java.util.ArrayList | Lista dinámica de elementos            | Manejo interno de colecciones (si aplica).        |
 | List      | java.util.List      | Interfaz para listas                    | Definición de colecciones ordenadas (si aplica). |
+| Swing     | javax.swing         | Interfaz gráfica                       | Creación de la UI del sistema                    |
+| Awt       | java,awt            | Interfaz gráfica                       | Creación de la UI del sistema                    |
+| iTextPDF  | com.itextpdf        | Generador de PDF                        | Permite crear el PDF con la traducción generada. |
 
 ## 4. Sistema de Control de Versiones
 
@@ -35,3 +38,4 @@ El proyecto utiliza clases de la biblioteca estándar de Java:
 - `java.util.Map` → Interfaz utilizada para abstraer la implementación interna del diccionario.
 - `java.util.ArrayList` → Para manejar colecciones dinámicas en caso de listas de caracteres.
 - `java.util.List` → Interfaz general para estructuras tipo lista.
+- `java.io.FileOutputStream` → Permite escribir en archivos.
