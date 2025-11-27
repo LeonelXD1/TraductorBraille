@@ -9,6 +9,7 @@
 | **TC_TRAD_005** | Manejo de caracteres acentuados ('ñ', 'á', etc.).           | `TraductorBraille`         | Media               |
 | **TC_TRAD_006** | Traducción de carácter no soportado (Fallback).             | `FabricaCaracteresBraille` | Baja                |
 | **TC_TRAD_007** | Traducción de números decimales.                            | `TraductorBraille`         | Alta                |
+| **TC_PDF**      | Generación de PDF correcta.                                  | `GeneradorPDF`             | Alta                |
 
 ### Detalle de Casos de Prueba
 
@@ -28,9 +29,9 @@ La `FabricaCaracteresBraille` debe estar inicializada y contener las letras 'm' 
 
 **Resultado Esperado:**
 La salida debe coincidir exactamente con la representación Braille de 'm' seguido de 'i':
-Fila 1: `1 1  0 1`
-Fila 2: `0 0  1 0`
-Fila 3: `1 0  0 0`
+Fila 1: `● ●  ○ ●`
+Fila 2: `○ ○  ● ○`
+Fila 3: `● ○  ○ ○`
 
 **Resultado obtenido:**
 
@@ -57,13 +58,13 @@ La `FabricaCaracteresBraille` debe tener mapeado el carácter de espacio () con 
 La salida debe componerse de las representaciones Braille de 'm', 'i', ' ', 's', 'o', 'l', con la separación estándar entre caracteres.
 
 * El Braille del **Espacio** debe ser:
-  Fila 1: `0 0`
-  Fila 2: `0 0`
-  Fila 3: `0 0`
+  Fila 1: `○ ○`
+  Fila 2: `○ ○`
+  Fila 3: `○ ○`
 * **Composición Final (M I ' ' S O L):**
-  Fila 1: `1 1  0 1  0 0  0 1  1 0  1 0`
-  Fila 2: `0 0  1 0  0 0  1 0  0 1  1 0`
-  Fila 3: `1 0  0 0  0 0  1 0  1 0  1 0`
+  Fila 1: `● ●  ○ ●  ○ ○  ○ ●  ● ○  ● ○`
+  Fila 2: `○ ○  ● ○  ○ ○  ● ○  ○ ●  ● ○`
+  Fila 3: `● ○  ○ ○  ○ ○  ● ○  ● ○  ● ○`
 
 **Resultado obtenido:**
 
@@ -87,9 +88,9 @@ La fábrica debe contener el indicador numérico y los Braille de los dígitos.
 
 **Resultado Esperado:**
 La salida debe componerse del **Indicador Numérico** (`0 1`, `0 1`, `1 1`) seguido del Braille de la letra 'e':
-Fila 1: `0 1  1 0`
-Fila 2: `0 1  0 1`
-Fila 3: `1 1  0 0`
+Fila 1: `○ ●  ● ○`
+Fila 2: `○ ●  ○ ●`
+Fila 3: `● ●  ○ ○`
 
 Resultado obtenido:
 
@@ -112,14 +113,13 @@ Resultado obtenido:
 
 **Indicador de Mayúscula**
 
-`0 1`
+`○ ●`
 
-`0 0`
+`○ ○`
 
-`0 1` 
+`○ ●`
 
 + Braille de 'h'
-
 + Seguido por los Braille de 'o', 'l', 'a'.
 
 (El indicador solo debe aparecer  **antes de la primera letra mayúscula** ).
@@ -146,9 +146,9 @@ El carácter 'ñ' debe estar mapeado directamente en la `FabricaCaracteresBraill
 
 **Resultado Esperado:**
 La salida debe coincidir exactamente con el Braille de 'ñ':
-Fila 1: `1 1`
-Fila 2: `1 1`
-Fila 3: `0 1`
+Fila 1: `● ●`
+Fila 2: `● ●`
+Fila 3: `○ ●`
 
 **Resultado Obtenido:**
 
@@ -173,9 +173,9 @@ El carácter `@` no debe estar presente en el mapa de la `FabricaCaracteresBrail
 **Resultado Esperado:**
 La traducción debe incluir: **Indicador Mayúscula** + **Braille A** + **Braille ?** + **Indicador Mayúscula** +  **Braille Z** .
 La representación de `@` debe ser:
-Fila 1: `0 0`
-Fila 2: `1 0`
-Fila 3: `1 1`
+Fila 1: `○ ○`
+Fila 2: `● ○`
+Fila 3: `● ●`
 
 **Resultado Obtenido:**
 
@@ -202,9 +202,9 @@ Fila 3: `1 1`
 
 **Resultado Esperado:**
 La salida debe componerse de: **Indicador Numérico** + **Braille '1'** + **Braille de punto final** +  **Braille '2'** .
-Fila 1: `0 1  1 0  0 0  1 0`
-Fila 2: `0 1  0 0  0 0  1 0`
-Fila 3: `1 1  0 0  1 0  0 0`
+Fila 1: `○ ●  ● ○  ○ ○  ● ○`
+Fila 2: `○ ●  ○ ○  ○ ○  ● ○`
+Fila 3: `● ●  ○ ○  ● ○  ○ ○`
 
 **Resultado Obtenido:**
 
@@ -214,7 +214,7 @@ Fila 3: `1 1  0 0  1 0  0 0`
 
 ![1763925082546](image/tests/1763925082546.png)
 
-Lo que sucede es que se crea el identificador de número luego de el signo "." o "," 
+Lo que sucede es que se crea el identificador de número luego de el signo "." o ","
 
 **Solución:**
 
@@ -232,4 +232,35 @@ evitando asi que se cree el identificador de número luego del "," o "."
 
 ![1763925350860](image/tests/1763925350860.png)
 
-:
+---
+
+### 8. Caso de Prueba: TC_PDF
+
+**Título:** Generación de PDF correcta.
+**Propósito:** Confirmar que el método `crearDocumento` se ejecuta sin errores, crea un archivo PDF en el sistema de archivos y que dicho archivo no está vacío, validando la integración con la librería iTextPDF.
+
+**Precondiciones:**
+
+1. La librería `iTextPDF` debe estar correctamente configurada en el proyecto.
+2. La ruta de salida debe ser accesible para escritura.
+3. Los datos de entrada (`textoOriginal` y `textoBraille`) son cadenas de texto válidas.
+
+**Pasos de Ejecución:**
+
+1. Definir una ruta de salida temporal (`test_traduccion_braille.pdf`).
+2. Llamar a `GeneradorPDF.crearDocumento(ruta, "Texto Original", "Braille Traducido")`.
+3. Verificar que la ejecución no lance excepciones.
+4. Verificar la existencia del archivo en la ruta de salida.
+5. Verificar que el tamaño del archivo sea mayor a cero.
+
+**Resultado Esperado:**
+
+1. El método `crearDocumento` finaliza sin lanzar excepciones (`Exception`).
+2. El archivo `test_traduccion_braille.pdf` existe en el disco.
+3. El archivo tiene un tamaño (`length()`) mayor a 0 bytes, indicando que se escribió contenido (metadatos del PDF, texto original, y la tabla Braille).
+
+**Resultado obtenido:**
+
+![1764259289967](image/tests/1764259289967.png)
+
+![1764259569184](image/tests/1764259569184.png)
