@@ -1,30 +1,31 @@
 @echo off
 SET SOURCE_DIR=src
+SET LIB_DIR=lib
 SET MAIN_CLASS=Main
 
-REM Compilar todos los archivos .java dentro de la carpeta src
-echo Compilando los archivos Java en %SOURCE_DIR%...
-REM Necesitamos especificar el destino de los archivos .class
-javac -d %SOURCE_DIR% %SOURCE_DIR%\*.java
+REM --- COMPILACIÓN ---
+echo Compilando archivos en %SOURCE_DIR%...
 
-REM Verificar si la compilación fue exitosa
+REM Se agrega -cp "%LIB_DIR%\*" para que reconozca los JARs externos.
+REM -d %SOURCE_DIR% indica donde guardar los .class (en la misma carpeta src según tu config original)
+javac -cp "%LIB_DIR%\*" -d %SOURCE_DIR% %SOURCE_DIR%\*.java
+
+REM Verificar errores
 if %errorlevel% neq 0 (
-    echo Error de compilación.
+    echo Error de compilacion.
+    pause
     goto :eof
 )
 
-REM 1. Configurar la codificación de la consola a UTF-8 (código 65001)
-chcp 65001 > nul
-
-REM 2. Ejecutar la clase principal desde la carpeta src
+REM --- EJECUCIÓN ---
 echo.
-echo Ejecutando el programa Braille desde %SOURCE_DIR%...
+echo Iniciando aplicacion...
 
-REM El comando java debe saber dónde buscar las clases, por eso usamos -cp (classpath)
-java -cp %SOURCE_DIR% %MAIN_CLASS%
+REM Para ejecutar necesitamos indicar donde estan las clases (src) Y las librerias (lib)
+REM NOTA: Si usas "java", la consola negra se queda atras.
+REM Si usas "start javaw", la consola se cierra y solo queda tu UI.
 
-REM Restaurar la codificación de la consola original
-chcp 850 > nul
+start javaw -cp "%SOURCE_DIR%;%LIB_DIR%\*" %MAIN_CLASS%
 
-echo.
-echo Ejecución finalizada.
+REM No es necesario pause al final si usamos start javaw, el script termina y deja la UI abierta.
+exit
