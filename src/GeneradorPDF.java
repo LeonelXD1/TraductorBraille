@@ -1,9 +1,4 @@
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.FontFactory;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
+import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
@@ -53,6 +48,46 @@ public class GeneradorPDF {
         celda.setBorderWidth(1.5f);
         celda.setBorderColor(BaseColor.DARK_GRAY);
         celda.setBackgroundColor(new BaseColor(245, 245, 245));
+
+        tabla.addCell(celda);
+        document.add(tabla);
+
+        document.close();
+    }
+
+    // Agrega este método en GeneradorPDF
+    public void crearDocumentoEspejo(String path, String textoOriginal, String textoBrailleEspejo) throws Exception {
+        Document document = new Document();
+        PdfWriter.getInstance(document, new FileOutputStream(path));
+        document.open();
+
+        Font fontTitulo = FontFactory.getFont(FontFactory.HELVETICA_BOLD, 18);
+        Font fontSub = FontFactory.getFont(FontFactory.HELVETICA_OBLIQUE, 12);
+
+        document.add(new Paragraph("Escritura Manual (Modo Espejo)", fontTitulo));
+        document.add(new Paragraph("\n"));
+
+        // Texto Original
+        document.add(new Paragraph("Texto a escribir:", FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12)));
+        document.add(new Paragraph(textoOriginal));
+        document.add(new Paragraph("\n"));
+
+        // Texto Braille Espejo
+        document.add(new Paragraph("Patrón (Espejo):", FontFactory.getFont(FontFactory.HELVETICA_BOLD, 12)));
+        document.add(new Paragraph("\n"));
+
+        FontFactory.registerDirectories();
+        Font fontBraille = FontFactory.getFont("Courier New", BaseFont.IDENTITY_H, BaseFont.EMBEDDED, 16);
+
+        PdfPTable tabla = new PdfPTable(1);
+        tabla.setWidthPercentage(100);
+
+        // Alineamos a la DERECHA porque así se escribe en la regleta
+        PdfPCell celda = new PdfPCell(new Phrase(textoBrailleEspejo, fontBraille));
+        celda.setPadding(15);
+        celda.setHorizontalAlignment(Element.ALIGN_RIGHT); // Alineación derecha vital para el concepto espejo
+        celda.setBorderWidth(1.5f);
+        celda.setBorderColor(BaseColor.GRAY);
 
         tabla.addCell(celda);
         document.add(tabla);

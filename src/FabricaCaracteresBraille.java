@@ -180,4 +180,40 @@ public class FabricaCaracteresBraille {
         return resultado != null;
     }
 
+
+    private boolean sonPuntosIguales(boolean[] a, boolean[] b) {
+        if (a.length != b.length) return false;
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] != b[i]) return false;
+        }
+        return true;
+    }
+
+    /**
+     * Busca un caracter basándose en los puntos y en el contexto (si esperamos número o letra).
+     */
+    public char buscarCaracterSensibleAlContexto(boolean[] puntosBusqueda, boolean modoNumero) {
+        for (Map.Entry<Character, CaracterBraille> entry : mapaCaracteres.entrySet()) {
+            boolean[] puntosActuales = entry.getValue().getPuntos();
+
+            // Si los puntos coinciden...
+            if (sonPuntosIguales(puntosBusqueda, puntosActuales)) {
+                char caracterEncontrado = entry.getKey();
+
+                // FILTRO DE CONTEXTO:
+
+                // 1. Si estamos en modo número, solo devolvemos dígitos
+                if (modoNumero && Character.isDigit(caracterEncontrado)) {
+                    return caracterEncontrado;
+                }
+
+                // 2. Si NO estamos en modo número, preferimos letras
+                // (Ignoramos dígitos para que la 'h' no salga como '8')
+                if (!modoNumero && !Character.isDigit(caracterEncontrado)) {
+                    return caracterEncontrado;
+                }
+            }
+        }
+        return '?';
+    }
 }

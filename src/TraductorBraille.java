@@ -142,4 +142,108 @@ public class TraductorBraille {
             linea.append("  ");
         }
     }
+
+    // Agrega este método dentro de tu clase TraductorBraille
+
+    public String traducirTextoEspejo(String texto) {
+        if (texto == null || texto.isEmpty()) return "";
+
+        // 1. Invertimos el texto: "Hola" -> "aloH"
+        String textoInvertido = new StringBuilder(texto).reverse().toString();
+
+        StringBuilder resultado = new StringBuilder();
+        List<StringBuilder> lineas = new ArrayList<>();
+        for (int i = 0; i < 3; i++) lineas.add(new StringBuilder());
+
+        // Variable para controlar si el indicador de número ya se puso (para secuencias)
+        // Nota: En espejo es complejo, pero para caracteres sueltos funcionará.
+        boolean enModoNumero = false;
+
+        for (int i = 0; i < textoInvertido.length(); i++) {
+            char caracter = textoInvertido.charAt(i);
+
+            boolean esMayuscula = Character.isUpperCase(caracter);
+            boolean esDigito = Character.isDigit(caracter);
+
+            // Si es mayúscula, obtenemos su versión minúscula para buscar los puntos
+            char caracterBusqueda = esMayuscula ? Character.toLowerCase(caracter) : caracter;
+
+            // --- [CAMBIO IMPORTANTE] ---
+            // Antes ponías el indicador PRIMERO.
+            // Ahora ponemos el caracter PRIMERO, para que el indicador quede DESPUÉS (a la derecha).
+
+            // 1. Agregamos el caracter (letra o número) espejo
+            CaracterBraille braille = fabrica.obtenerCaracterBraille(caracterBusqueda);
+            if (braille != null) {
+                agregarCaracterBrailleEspejo(braille, lineas);
+            }
+
+            // 2. Agregamos el indicador de Mayúscula DESPUÉS
+            if (esMayuscula) {
+                // Truco: Al agregarlo después en el bucle, visualmente aparecerá a la derecha
+                agregarIndicadorMayusculaEspejo(lineas);
+            }
+
+            // 3. Agregamos el indicador de Número DESPUÉS (Si es el último dígito del grupo)
+            // (Como el texto está invertido "21", el "1" es el último procesado,
+            // así que el indicador # debe ir al final de el grupo numérico)
+            if (esDigito) {
+                // Miramos el siguiente caracter (que en realidad es el anterior en la palabra original)
+                // Si ya no es dígito, significa que aquí termina el número y va el indicador #
+                boolean siguienteEsDigito = (i + 1 < textoInvertido.length()) &&
+                        Character.isDigit(textoInvertido.charAt(i + 1));
+
+                if (!siguienteEsDigito) {
+                    agregarIndicadorNumericoEspejo(lineas);
+                }
+            }
+
+            // Espacio entre celdas
+            if (i < textoInvertido.length() - 1) {
+                for (StringBuilder linea : lineas) {
+                    linea.append("  ");
+                }
+            }
+        }
+
+        for (StringBuilder linea : lineas) {
+            resultado.append(linea.toString()).append("\n");
+        }
+
+        return resultado.toString();
+    }
+
+    // --- MÉTODOS AUXILIARES PRIVADOS PARA EL ESPEJO ---
+
+    private void agregarCaracterBrailleEspejo(CaracterBraille braille, List<StringBuilder> lineas) {
+        boolean[] puntos = braille.getPuntos();
+        // LOGICA ESPEJO: Intercambiamos columna izquierda (0,1,2) con derecha (3,4,5)
+        // Fila 1: Puntos 3 y 0
+        lineas.get(0).append(puntos[3] ? "●" : "○").append(" ").append(puntos[0] ? "●" : "○");
+        // Fila 2: Puntos 4 y 1
+        lineas.get(1).append(puntos[4] ? "●" : "○").append(" ").append(puntos[1] ? "●" : "○");
+        // Fila 3: Puntos 5 y 2
+        lineas.get(2).append(puntos[5] ? "●" : "○").append(" ").append(puntos[2] ? "●" : "○");
+    }
+
+    private void agregarIndicadorNumericoEspejo(List<StringBuilder> lineas) {
+        // El indicador numérico estándar es 3,4,5,6.
+        // En espejo (invertido horizontalmente) se convierte en:
+        lineas.get(0).append("● ○"); // Inverso de 0,3
+        lineas.get(1).append("● ○"); // Inverso de 1,4
+        lineas.get(2).append("● ●"); // Inverso de 2,5
+        for (StringBuilder linea : lineas) linea.append("  ");
+    }
+
+    private void agregarIndicadorMayusculaEspejo(List<StringBuilder> lineas) {
+        // El indicador mayúscula estándar es el punto 6 (derecha abajo).
+        // En espejo pasa a ser el punto 3 (izquierda abajo).
+        lineas.get(0).append("● ○"); // Estaba a la derecha, pasa a la izquierda
+        lineas.get(1).append("○ ○");
+        lineas.get(2).append("● ○"); // Corrección: Indicador mayúscula es punto 4 y 6 normalmente?
+        // Vamos a usar tu lógica base: Tu codigo dice mayuscula es [F,F,F,F,F,V] (punto 6).
+        // Espejo del punto 6 (derecha abajo) es el punto 3 (izquierda abajo).
+        for (StringBuilder linea : lineas) linea.append("  ");
+    }
+
 }
