@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram name="Página-1" id="160_NMJxD8QPbCBUX-tR">
-        <mxGraphModel dx="553" dy="563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="709" dy="429" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -46,8 +46,7 @@
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="170" y="235"/>
-                            <mxPoint x="330" y="235"/>
-                            <mxPoint x="330" y="135"/>
+                            <mxPoint x="340" y="235"/>
                         </Array>
                         <mxPoint x="210" y="269.5" as="sourcePoint"/>
                         <mxPoint x="290" y="155" as="targetPoint"/>
@@ -70,25 +69,25 @@
                 <mxCell id="BmNa9CR6Ng6OrZSvbdIJ-18" value="" style="aspect=fixed;sketch=0;html=1;dashed=0;whitespace=wrap;verticalLabelPosition=bottom;verticalAlign=top;fillColor=#2875E2;strokeColor=#ffffff;points=[[0.005,0.63,0],[0.1,0.2,0],[0.9,0.2,0],[0.5,0,0],[0.995,0.63,0],[0.72,0.99,0],[0.5,1,0],[0.28,0.99,0]];shape=mxgraph.kubernetes.icon2;prIcon=crd" parent="BmNa9CR6Ng6OrZSvbdIJ-8" vertex="1">
                     <mxGeometry x="385" y="235" width="50" height="48" as="geometry"/>
                 </mxCell>
-                <mxCell id="2" value="Motor PDF" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="BmNa9CR6Ng6OrZSvbdIJ-8">
+                <mxCell id="2" value="Motor PDF" style="rounded=1;whiteSpace=wrap;html=1;" parent="BmNa9CR6Ng6OrZSvbdIJ-8" vertex="1">
                     <mxGeometry x="10" y="125" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="entrega" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="BmNa9CR6Ng6OrZSvbdIJ-8" source="BmNa9CR6Ng6OrZSvbdIJ-4" target="2">
+                <mxCell id="3" value="entrega" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;" parent="BmNa9CR6Ng6OrZSvbdIJ-8" source="BmNa9CR6Ng6OrZSvbdIJ-4" target="2" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="40" y="414" as="sourcePoint"/>
                         <mxPoint x="386" y="405" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="4" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="BmNa9CR6Ng6OrZSvbdIJ-2">
+                <mxCell id="4" style="edgeStyle=none;html=1;" parent="1" source="2" target="BmNa9CR6Ng6OrZSvbdIJ-2" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <Array as="points">
                             <mxPoint x="270" y="350"/>
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="5" value="genera" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="4">
+                <mxCell id="5" value="genera braille normal o espejo&lt;br&gt;&lt;div&gt;&lt;div&gt;Genera Español&lt;/div&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="4" vertex="1" connectable="0">
                     <mxGeometry x="-0.2135" y="-3" relative="1" as="geometry">
-                        <mxPoint x="-38" y="8" as="offset"/>
+                        <mxPoint x="-14" y="23" as="offset"/>
                     </mxGeometry>
                 </mxCell>
             </root>
