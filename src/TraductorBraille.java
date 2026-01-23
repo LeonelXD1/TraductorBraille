@@ -145,6 +145,12 @@ public class TraductorBraille {
 
     // Agrega este método dentro de tu clase TraductorBraille
 
+    /**
+     * Traduce un texto a su representación en Braille espejo (invertido horizontalmente).
+     * Invierte el texto y ajusta los indicadores para que aparezcan en la posición correcta.
+     * @param texto El texto en español que se desea traducir a Braille espejo
+     * @return String con la representación Braille espejo del texto en formato de 3 filas
+     */
     public String traducirTextoEspejo(String texto) {
         if (texto == null || texto.isEmpty()) return "";
 
@@ -215,6 +221,12 @@ public class TraductorBraille {
 
     // --- MÉTODOS AUXILIARES PRIVADOS PARA EL ESPEJO ---
 
+    /**
+     * Agrega la representación espejo de un carácter Braille a las líneas de salida.
+     * Invierte horizontalmente los puntos del carácter Braille.
+     * @param braille El objeto CaracterBraille que se desea agregar
+     * @param lineas Lista de 3 StringBuilder que representan las 3 filas de salida Braille
+     */
     private void agregarCaracterBrailleEspejo(CaracterBraille braille, List<StringBuilder> lineas) {
         boolean[] puntos = braille.getPuntos();
         // LOGICA ESPEJO: Intercambiamos columna izquierda (0,1,2) con derecha (3,4,5)
@@ -226,6 +238,11 @@ public class TraductorBraille {
         lineas.get(2).append(puntos[5] ? "●" : "○").append(" ").append(puntos[2] ? "●" : "○");
     }
 
+    /**
+     * Agrega el indicador numérico de Braille en formato espejo a las líneas de salida.
+     * Invierte horizontalmente el indicador numérico estándar.
+     * @param lineas Lista de 3 StringBuilder que representan las 3 filas de salida Braille
+     */
     private void agregarIndicadorNumericoEspejo(List<StringBuilder> lineas) {
         // El indicador numérico estándar es 3,4,5,6.
         // En espejo (invertido horizontalmente) se convierte en:
@@ -235,6 +252,11 @@ public class TraductorBraille {
         for (StringBuilder linea : lineas) linea.append("  ");
     }
 
+    /**
+     * Agrega el indicador de mayúscula de Braille en formato espejo a las líneas de salida.
+     * Invierte horizontalmente el indicador de mayúscula estándar.
+     * @param lineas Lista de 3 StringBuilder que representan las 3 filas de salida Braille
+     */
     private void agregarIndicadorMayusculaEspejo(List<StringBuilder> lineas) {
         // El indicador mayúscula estándar es el punto 6 (derecha abajo).
         // En espejo pasa a ser el punto 3 (izquierda abajo).

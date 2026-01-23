@@ -7,7 +7,8 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileOutputStream;
 
 /**
- * Permite generar un archivo PDF con el texto original y su traducción a Braille,
+ * Permite generar un archivo PDF con el texto original y su traducción a
+ * Braille,
  * aplicando estilos básicos para mejorar su lectura y presentación final.
  */
 public class GeneradorPDF {
@@ -55,7 +56,17 @@ public class GeneradorPDF {
         document.close();
     }
 
-    // Agrega este método en GeneradorPDF
+    /**
+     * Genera un documento PDF en modo espejo para escritura manual con regleta.
+     * Muestra el texto original y su representación Braille invertida
+     * horizontalmente (espejo)
+     * y alineada a la derecha.
+     *
+     * @param path               Ruta donde se guardará el archivo PDF.
+     * @param textoOriginal      Texto original que se mostrará como referencia.
+     * @param textoBrailleEspejo Representación en Braille espejo del texto.
+     * @throws Exception Si ocurre un error durante la generación del PDF.
+     */
     public void crearDocumentoEspejo(String path, String textoOriginal, String textoBrailleEspejo) throws Exception {
         Document document = new Document();
         PdfWriter.getInstance(document, new FileOutputStream(path));
