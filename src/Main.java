@@ -238,12 +238,15 @@ public class Main extends JFrame {
         JPanel panelModificadores = new JPanel(new GridLayout(2, 1, 10, 20));
         panelModificadores.setBorder(BorderFactory.createTitledBorder("Opciones"));
 
-        tglMayuscula = new JToggleButton("MAYÚSCULA");
-        tglMayuscula.setFont(new Font("Dialog", Font.BOLD, 12));
+        tglMayuscula = new JToggleButton("MAYÚSCULA (⠨)"
+         
+        );
+        tglMayuscula.setFont(new Font("Dialog", Font.BOLD, 18));
         configurarBotonModificador(tglMayuscula, new Color(233, 30, 99));
 
-        tglNumero = new JToggleButton("NÚMERO (#)");
-        tglNumero.setFont(new Font("Dialog", Font.BOLD, 12));
+        tglNumero = new JToggleButton("NÚMERO (⠼)");
+        
+        tglNumero.setFont(new Font("Dialog", Font.BOLD, 18));
         configurarBotonModificador(tglNumero, new Color(0, 188, 212));
 
         panelModificadores.add(tglMayuscula);
