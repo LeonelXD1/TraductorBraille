@@ -150,19 +150,19 @@
             <tr>
                 <td>MOD-LOG</td>
                 <td>Lógica de Traducción (Código Fuente)</td>
-                <td>6.0</td>
+                <td>3.0</td>
                 <td>Adición de métodos para procesar cadenas Braille y convertirlas a texto.</td>
             </tr>
             <tr>
                 <td>DOC-ARC</td>
                 <td>Diseño Arquitectónico de alto nivel</td>
-                <td>6.0</td>
+                <td>2.0</td>
                 <td>Actualización del diagrama para incluir el flujo de datos inverso.</td>
             </tr>
             <tr>
                 <td>DOC-TST</td>
                 <td>Documentación de Casos de Prueba</td>
-                <td>8.0</td>
+                <td>2.0</td>
                 <td>Inclusión de nuevos escenarios de prueba para entradas Braille válidas e inválidas.</td>
             </tr>
             <tr>

@@ -156,19 +156,19 @@
             <tr>
                 <td>MOD-LOG</td>
                 <td>Clase de Renderizado / Generación de Salida</td>
-                <td>6.0</td>
+                <td>3.0</td>
                 <td>Implementación de la lógica de inversión de derecha a izquierda para los caracteres.</td>
             </tr>
             <tr>
                 <td>DOC-ARC</td>
                 <td>Diseño Arquitectónico de alto nivel</td>
-                <td>6.0</td>
+                <td>2.0</td>
                 <td>Actualización del diagrama para incluir el flujo de braille en espejo.</td>
             </tr>
             <tr>
                 <td>DOC-TST</td>
                 <td>Documentación de Casos de Prueba</td>
-                <td>8.0</td>
+                <td>2.0</td>
                 <td>Inclusión de nuevos escenarios de prueba para entradas Braille en formato espejo.</td>
             </tr>
             <tr>
