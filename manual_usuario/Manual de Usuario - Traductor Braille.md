@@ -23,7 +23,7 @@ Manual de Usuario
 <div style="height: 125px;"></div>
 
 <p style="font-size: 21px; font-weight: bold; color:#0a2b50; text-align: right;">
-Versión 2.0
+Versión 3.0
 </p>
 
 <hr style="border: 1px solid #999;">
@@ -51,9 +51,11 @@ Versión 2.0
     <li><a style="color: black;" href="#sec-2-4-ejecucion">&emsp;2.4. Ejecución mediante archivo .bat</a></li>
     <li><a style="color: black;" href="#sec-3-uso">3. Uso del Sistema</a></li>
     <li><a style="color: black;" href="#sec-3-1-inicio">&emsp;3.1. Inicio del programa</a></li>
-    <li><a style="color: black;" href="#sec-3-2-ingreso">&emsp;3.2. Ingreso de texto</a></li>
+    <li><a style="color: black;" href="#sec-3-2-ingreso">&emsp;3.2. Texto a Braille</a></li>
     <li><a style="color: black;" href="#sec-3-3-lectura">&emsp;3.3. Lectura de la traducción en Braille</a></li>
     <li><a style="color: black;" href="#sec-3-4-impresion">&emsp;3.4. Exportación de traducción a PDF</a></li>
+    <li><a style="color: black;" href="#sec-3-5-ingreso">&emsp;3.5. Braille a texto</a></li>
+    <li><a style="color: black;" href="#sec-3-6-impresion">&emsp;3.6. Exportación de traducción a PDF espejo</a></li>
     <li><a style="color: black;" href="#sec-4-problemas">4. Solución de Problemas Comunes</a></li>
     <li><a style="color: black;" href="#sec-4-1-consola">&emsp;4.1. La consola se cierra inmediatamente</a></li>
     <li><a style="color: black;" href="#sec-4-2-no-traduccion">&emsp;4.2. No aparece la traducción</a></li>
@@ -172,8 +174,10 @@ Al ejecutar el `.bat`, aparecerá:
 <div align="center">
 <img src="image/ejecucion.png" width="50%"alt="Ejecución del traductor">
 </div>
+donde se podrá seleccionar el modo de traducción.
+
 <p id="sec-3-2-ingreso" style="font-weight: bold; color:#4f81bd; text-align: justify;">
-3.2. Ingreso de texto
+3.2. Texto a Braille
 </p>
 <p style="text-align: justify;">
 Escriba la palabra o frase que desea traducir y presione <b>Traducir</b>.<br>
@@ -218,6 +222,44 @@ El sistema permite guardar la traducción Braille en un archivo PDF mediante el 
 
 <div align="center">
 <img src="image/pdf.png" width="50%"alt="Ejecución del traductor">
+</div>
+</p>
+<p id="sec-3-5-ingreso" style="font-weight: bold; color:#4f81bd; text-align: justify;">
+3.5. Braille a texto
+</p>
+<p style="text-align: justify;">
+El sistema permite escribir en Braille con unos botones con puntos, además permite poner mayúscula y números si es necesario como se muestra en el siguiente ejemplo:
+</p>
+<div align="center">
+<img src="image/braile_texto.png" width="50%"alt="Ejecución del traductor">
+</div>
+<p style="text-align: justify;">
+Con el botón de <b>AGREGAR LETRA</b> se irá agregando la letra correspondiente a la combinación de puntos puesta hasta formar una palabra
+</p>
+<p id="sec-3-6-impresion" style="font-weight: bold; color:#4f81bd; text-align: justify;">
+3.6. Exportación de traducción a PDF espejo
+</p>
+<p style="text-align: justify;">
+El sistema permite guardar la traducción de Braille a Texto en un archivo PDF mediante el botón <b>PDF espejo</b>. Al presionarlo:
+
+1. Se abre una ventana para seleccionar la ubicación de guardado.
+2. El usuario ingresa el nombre del archivo.
+
+<div align="center">
+<img src="image/impresiones.png" width="50%"alt="Ejecución del traductor">
+</div>
+
+3. Se genera un PDF que incluye el texto traducido y el Braille mediante puntos gráficos en espejo debido a que este se escribe de derecha a izquieda.
+4. El sistema confirma la creación del archivo.
+
+<div align="center">
+<img src="image/exito.png" width="50%"alt="Ejecución del traductor">
+</div>
+
+5. Se puede buscar el archivo en la ubicación especificada.
+
+<div align="center">
+<img src="image/pdf2.png" width="50%"alt="Ejecución del traductor">
 </div>
 </p>
 
