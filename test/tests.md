@@ -10,6 +10,8 @@
 | **TC_TRAD_006** | Traducción de carácter no soportado (Fallback).             | `FabricaCaracteresBraille` | Baja                |
 | **TC_TRAD_007** | Traducción de números decimales.                            | `TraductorBraille`         | Alta                |
 | **TC_PDF**      | Generación de PDF correcta.                                  | `GeneradorPDF`             | Alta                |
+| **TC_ESP**      | Traduccion de Braille a español                              | `FabricaCaracteresBraille` | Alta                |
+| **TC_ESPEJO**   | Traducciòn a Braille en modo espejo                          | `TraductorBraille`         | Alta                |
 
 ### Detalle de Casos de Prueba
 
@@ -264,3 +266,66 @@ evitando asi que se cree el identificador de número luego del "," o "."
 ![1764259289967](image/tests/1764259289967.png)
 
 ![1764259569184](image/tests/1764259569184.png)
+
+---
+
+
+### 9. Caso de Prueba: TC_ESP
+
+**Título:** Traducción de Braille a español (Contexto Sensible).
+**Propósito:** Validar la lógica de la `FabricaCaracteresBraille` para interpretar correctamente un mismo patrón de puntos Braille como una letra o un número, dependiendo del indicador de modo (contexto) activo.
+
+**Precondiciones:**
+
+1. Se debe obtener una instancia válida de `FabricaCaracteresBraille`.
+2. Se deben definir arreglos de booleanos que representen patrones de puntos ambivalentes (ej. el patrón de 'a' es idéntico al de '1').
+
+**Pasos de Ejecución:**
+
+1. Definir el patrón de puntos para la letra 'a' / número '1' (`true, false, false, false, false, false`).
+2. Definir el patrón de puntos para la letra 'b' / número '2' (`true, true, false, false, false, false`).
+3. Llamar al método `buscarCaracterSensibleAlContexto` pasando el patrón y el flag `esModoNumero` en `false`.
+4. Llamar al método `buscarCaracterSensibleAlContexto` pasando el mismo patrón pero con el flag `esModoNumero` en `true`.
+
+**Resultado Esperado:**
+
+* Cuando `esModoNumero` es `false`, el método retorna el carácter alfabético (ej. 'a', 'b').
+* Cuando `esModoNumero` es `true`, el método retorna el carácter numérico correspondiente al mismo patrón (ej. '1', '2').
+* Si el patrón no existe, se maneja el retorno por defecto (ej. espacio o carácter de error).
+
+**Resultado Obtenido:**
+
+![1769142048698](image/tests/1769142048698.png)
+
+---
+
+### 10. Caso de Prueba: TC_ESPEJO
+
+**Título:** Traducción de Texto en Espejo.
+**Propósito:** Verificar que el método `traducirTextoEspejo` invierta correctamente el orden de la cadena de texto (de derecha a izquierda) y aplique la inversión horizontal (espejo) a los bits de cada carácter Braille.
+
+**Precondiciones:**
+
+1. Instancia válida de la clase `TraductorBraille`.
+2. Una cadena de texto de entrada con combinación de mayúsculas y minúsculas (ej. "Hola").
+
+**Pasos de Ejecución:**
+
+1. Instanciar la clase `TraductorBraille`.
+2. Definir la cadena de entrada "Hola".
+3. Llamar al método `traducirTextoEspejo(texto)`.
+4. Comparar el `String` resultante con la matriz de puntos esperada manualmente.
+
+**Resultado Esperado:**
+
+1. El texto se procesa la entrada, traduce e invierte.
+2. Los patrones de puntos de cada carácter están invertidos horizontalmente (ej. la 'a' estándar `● ○` pasa a ser `○ ●` en la primera fila).
+3. La traducción final coincide exactamente con la cadena formateada que representa la secuencia invertida y espejada:
+   * 'a' espejada
+   * 'l' espejada
+   * 'o' espejada
+   * 'H' espejada (Indicador de mayúscula + 'h', ambos espejados).
+
+**Resultado Obtenido:**
+
+![1769142079552](image/tests/1769142079552.png)
