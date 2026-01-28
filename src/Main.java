@@ -38,7 +38,7 @@ public class Main extends JFrame {
     }
 
     private void configurarVentana() {
-        setTitle("Sistema de Traducción Braille - Grupo 2");
+        setTitle("Sistema de Traducción Braille");
         setSize(900, 650);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -108,14 +108,8 @@ public class Main extends JFrame {
         gbc.gridy = 3;
         panel.add(btnIrPuntos, gbc);
 
-        // Footer (Créditos)
-        JLabel lblCreditos = new JLabel("Desarrollado por Grupo 2", SwingConstants.CENTER);
-        lblCreditos.setFont(new Font("Dialog", Font.ITALIC, 12));
-        lblCreditos.setForeground(Color.GRAY);
-
         gbc.gridy = 4;
         gbc.insets = new Insets(50, 0, 0, 0);
-        panel.add(lblCreditos, gbc);
 
         return panel;
     }
